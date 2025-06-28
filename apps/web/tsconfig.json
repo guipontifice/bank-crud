@@ -1,0 +1,19 @@
+{
+	"extends": "../../packages/tsconfig/nextjs.json",
+	"compilerOptions": {
+		"paths": {
+			"@woovi-playground/ui": [
+				"../../packages/ui/src"
+			],
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"../../packages/ui/src/Logo.tsx"
+	],
+	"exclude": [
+		"node_modules"
+	]
+}
