@@ -1,17 +1,28 @@
 import mongoose, { Schema, Document } from 'mongoose'
 
 export interface IAccount extends Document {
-    ownerName: string;
+    name: string;
+    cpf: String;
+    rg: String;
+    email: String;
+    phone: String;
+    monthlyIncome: Number;
     balance: number;
     createdAt: Date;
     updatedAt: Date;
 }
 
 const AccountSchema: Schema = new Schema({
-    ownerName: { type: String, required: true },
-    balance: { type: Number, required: true, default: 0 }, // Usar Number ou Decimal128 (mais preciso para dinheiro)
+    name: { type: String, required: true },
+    cpf: { type: String, required: true },
+    rg: { type: String },
+    email: { type: String, required: true },
+    phone: { type: String },
+    monthlyIncome: { type: Number },
+    createdAt: { type: Date, default: Date.now },
+    balance: { type: Number, required: true, default: 0 },
 }, {
-    timestamps: true // Adiciona createdAt e updatedAt automaticamente
+    timestamps: true 
 });
 
 export const Account = mongoose.model<IAccount>('Account', AccountSchema)

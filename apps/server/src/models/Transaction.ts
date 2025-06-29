@@ -10,9 +10,10 @@ export interface ITransaction extends Document {
 
 const TransactionSchema: Schema = new Schema(
     {
-        from: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
-        to: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
+        from: { type: mongoose.Schema.Types.ObjectId, ref: 'Account', required: true },
+        to: { type: mongoose.Schema.Types.ObjectId, ref: 'Account', required: true },
         amount: { type: Number, required: true },
+        createdAt: { type: Date, default: Date.now },
     },
     { timestamps: true }
 )
