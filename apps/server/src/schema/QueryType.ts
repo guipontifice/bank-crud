@@ -1,4 +1,4 @@
-import { GraphQLObjectType } from 'graphql';
+import { GraphQLString, GraphQLObjectType } from 'graphql';
 
 import { messageConnectionField } from '../modules/message/messageFields';
 
