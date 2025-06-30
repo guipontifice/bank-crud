@@ -7,9 +7,8 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   testTimeout: 25000,
   globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.json',
-      isolatedModules: true
-    }
-  }
+    transform: {
+    transform_regex: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+  },
+}
 };
