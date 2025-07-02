@@ -5,7 +5,7 @@ import { redisPubSub } from '../../pubSub/redisPubSub';
 import { PUB_SUB_EVENTS } from '../../pubSub/pubSubEvents';
 
 import { Message } from '../MessageModel';
-import { messageField } from '../messageFields';
+import { messageField } from '../MessageFields';
 
 export type MessageAddInput = {
 	content: string;

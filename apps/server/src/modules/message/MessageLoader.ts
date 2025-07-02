@@ -1,20 +1,12 @@
 import { createLoader } from '@entria/graphql-mongo-helpers';
-
 import { registerLoader } from '../loader/loaderRegister';
+import { Message, IMessage } from './MessageModel'; // Garanta que IMessage está importado
 
-import { Message } from './MessageModel';
-
-const { Wrapper, getLoader, clearCache, load, loadAll } = createLoader({
-	model: Message,
-	loaderName: 'MessageLoader',
+const actualMessageLoaderObject = createLoader({
+    model: Message,
+    loaderName: 'MessageLoader',
 });
 
-registerLoader('MessageLoader', getLoader);
+registerLoader('MessageLoader', () => actualMessageLoaderObject.getLoader());
 
-export const MessageLoader = {
-	Message: Wrapper,
-	getLoader,
-	clearCache,
-	load,
-	loadAll,
-};
+export const MessageLoader = actualMessageLoaderObject;
