@@ -1,6 +1,7 @@
 {
 	"extends": "../../packages/tsconfig/nextjs.json",
 	"compilerOptions": {
+		"types": ["jest", "node"],
 		"paths": {
 			"@woovi-playground/ui": [
 				"../../packages/ui/src"
