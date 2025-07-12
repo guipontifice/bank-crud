@@ -8,7 +8,7 @@ module.exports = {
   testTimeout: 25000,
   globals: {
     transform: {
-    transform_regex: ['ts-jest', { /* ts-jest config goes here in Jest */ }],
+    transform_regex: ['ts-jest'],
   },
 }
 };
