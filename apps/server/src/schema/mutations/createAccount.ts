@@ -8,10 +8,10 @@ export const CreateAccountInputType = new GraphQLInputObjectType({
         name: { type: new GraphQLNonNull(GraphQLString) },
         cpf: { type: new GraphQLNonNull(GraphQLString) },
         email: { type: new GraphQLNonNull(GraphQLString) },
-        rg: { type: GraphQLString }, // RG é opcional no seu modelo
-        phone: { type: GraphQLString }, // Phone é opcional no seu modelo
-        monthlyIncome: { type: GraphQLFloat }, // monthlyIncome é opcional no seu modelo
-        initialBalance: { type: GraphQLFloat, defaultValue: 0 }, // Opcional, para um saldo inicial específico
+        rg: { type: GraphQLString }, 
+        phone: { type: GraphQLString }, 
+        monthlyIncome: { type: GraphQLFloat }, 
+        initialBalance: { type: GraphQLFloat, defaultValue: 0 }, 
     },
 });
 
