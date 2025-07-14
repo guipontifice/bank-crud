@@ -7,5 +7,5 @@ import '../modules/message/MessageLoader';
 export const schema = new GraphQLSchema({
 	query: QueryType,
 	mutation: MutationType,
-subscription: SubscriptionType
+	subscription: SubscriptionType
 });
