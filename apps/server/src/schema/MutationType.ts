@@ -6,6 +6,7 @@ import { createAccount } from './mutations/createAccount';
 export const MutationType = new GraphQLObjectType({
 	name: 'Mutation',
 	fields: {
-		createAccount: createAccount,
+		createAccount,
+		...messageMutations
 	},
 });
