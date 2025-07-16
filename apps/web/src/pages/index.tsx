@@ -1,14 +1,14 @@
 import { GetServerSideProps } from 'next';
-
 import { Message } from '../components/Message';
 import { Layout } from '../components/Layout';
 import { MessageList } from '../components/MessageList';
 import { getPreloadedQuery } from '../relay/network';
-import { PreloadedQuery, graphql, usePreloadedQuery } from 'react-relay';
+import { PreloadedQuery, graphql, useLazyLoadQuery, usePreloadedQuery } from 'react-relay';
 import pageQuery, {
 	pages_PageQuery,
 } from '../__generated__/pages_PageQuery.graphql';
 import { useMessageAddedSubscription } from '../components/subscriptions/useMessageAddedSubscription';
+import { Forms } from '../components/Forms';
 
 const IndexQuery = graphql`
 	query pages_PageQuery($first: Int!, $after: String) {
@@ -35,7 +35,7 @@ const Index = ({ queryRefs }: IndexProps) => {
 		IndexQuery,
 		queryRefs.pageQueryRef
 	);
-
+	console.log(data.messages?.edges)
 	useMessageAddedSubscription({
 		connections: [data.messages?.__id],
 		input: {},
@@ -43,6 +43,7 @@ const Index = ({ queryRefs }: IndexProps) => {
 
 	return (
 		<Layout>
+			<Forms />
 			<MessageList>
 				{data.messages.edges.map(({ node }) => (
 					<Message key={node.id} message={node} />
