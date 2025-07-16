@@ -54,6 +54,9 @@ async function networkFetch(
 	variables: Variables,
 	headers?: HeadersInit
 ) {
+	console.log("Enviando para GraphQL:", GRAPHQL_ENDPOINT);
+	console.log("Query:", params.text);
+	console.log("Variáveis:", variables);
 	// Fetch data from GraphQL API:
 	const response = await fetch(GRAPHQL_ENDPOINT, {
 		method: 'POST',
@@ -75,8 +78,7 @@ async function networkFetch(
 	// throw an error to indicate to the developer what went wrong.
 	if (Array.isArray(json.errors)) {
 		throw new Error(
-			`Error fetching GraphQL query '${
-				params.name
+			`Error fetching GraphQL query '${params.name
 			}' with variables '${JSON.stringify(variables)}': ${JSON.stringify(
 				json.errors
 			)}`
